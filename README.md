@@ -151,8 +151,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Rahul❤️
 
 ## 🙏 Acknowledgments
-- Built as part of the Data Engineering course project
-- Thanks to all contributors and testers
+- Built as part of the Big Data course project
 - Special thanks to Grades key
 
 ## 📞 Support
