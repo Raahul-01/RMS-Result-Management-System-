@@ -156,4 +156,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Special thanks to [Your Institution/Organization]
 
 ## 📞 Support
-For support, please create an issue in the repository or contact [your-email@example.com] 
+For support, please create an issue in the repository or contact [rahulkumarverma0001@gmail.com] 
