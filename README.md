@@ -153,7 +153,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 - Built as part of the Data Engineering course project
 - Thanks to all contributors and testers
-- Special thanks to [Your Institution/Organization]
+- Special thanks to Grades key
 
 ## 📞 Support
-For support, please create an issue in the repository or contact [rahulkumarverma0001@gmail.com] 
+For support, please create an issue in the repository or contact [rahulmessi7485@gmail.com] 
