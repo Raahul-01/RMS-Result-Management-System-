@@ -4,7 +4,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
+from pathlib import Path
 from typing import Tuple
+
+# Set up paths
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / 'data'
+ANALYSIS_DIR = BASE_DIR / 'analysis_results'
 
 # Set page configuration
 st.set_page_config(
@@ -37,11 +43,11 @@ st.markdown("""
 def load_data():
     """Load all analysis data"""
     try:
-        overall_stats = pd.read_csv('analysis_results/overall_stats.csv')
-        subject_stats = pd.read_csv('analysis_results/subject_stats.csv')
-        grade_dist = pd.read_csv('analysis_results/grade_dist.csv')
-        performance_metrics = pd.read_csv('analysis_results/performance_metrics.csv')
-        subject_performance = pd.read_csv('analysis_results/subject_performance.csv')
+        overall_stats = pd.read_csv(ANALYSIS_DIR / 'overall_stats.csv')
+        subject_stats = pd.read_csv(ANALYSIS_DIR / 'subject_stats.csv')
+        grade_dist = pd.read_csv(ANALYSIS_DIR / 'grade_dist.csv')
+        performance_metrics = pd.read_csv(ANALYSIS_DIR / 'performance_metrics.csv')
+        subject_performance = pd.read_csv(ANALYSIS_DIR / 'subject_performance.csv')
         return overall_stats, subject_stats, grade_dist, performance_metrics, subject_performance
     except FileNotFoundError:
         st.error("Data files not found. Please run data generation and analysis first!")
@@ -50,8 +56,8 @@ def load_data():
 def load_student_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Load student and marks data"""
     try:
-        students = pd.read_csv('data/students.csv')
-        marks = pd.read_csv('data/marks.csv')
+        students = pd.read_csv(DATA_DIR / 'students.csv')
+        marks = pd.read_csv(DATA_DIR / 'marks.csv')
         
         # Print data info for debugging
         print("\nStudents DataFrame Info:")

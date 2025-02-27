@@ -1,9 +1,18 @@
 import pandas as pd
 import random
 from faker import Faker
+import os
+from pathlib import Path
 
 # Initialize Faker for generating names
 fake = Faker()
+
+# Set up paths
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / 'data'
+
+# Ensure data directory exists
+DATA_DIR.mkdir(exist_ok=True)
 
 def generate_student_profiles(num_students=10000):  # Changed to 10000 students
     """Generate random student profiles"""
@@ -60,8 +69,8 @@ def main():
     marks_df = generate_marks(students_df)
     
     # Save to CSV files
-    students_df.to_csv('data/students.csv', index=False)
-    marks_df.to_csv('data/marks.csv', index=False)
+    students_df.to_csv(DATA_DIR / 'students.csv', index=False)
+    marks_df.to_csv(DATA_DIR / 'marks.csv', index=False)
     
     print(f"Generated data for {len(students_df)} students")
     print(f"Generated {len(marks_df)} mark entries")
@@ -70,8 +79,8 @@ def main():
 def verify_generated_data():
     """Verify the generated data"""
     try:
-        students_df = pd.read_csv('data/students.csv')
-        marks_df = pd.read_csv('data/marks.csv')
+        students_df = pd.read_csv(DATA_DIR / 'students.csv')
+        marks_df = pd.read_csv(DATA_DIR / 'marks.csv')
         
         print("\nVerification Results:")
         print(f"Number of students: {len(students_df)}")

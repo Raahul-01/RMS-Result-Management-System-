@@ -2,7 +2,7 @@
 
 A comprehensive system for managing and analyzing student results using Python, PySpark, and Streamlit. This project handles data for 10,000 students across 6 subjects, providing detailed analytics and an interactive dashboard.
 
-![Dashboard Overview](screenshots/dashboard_main.png)
+![Home Page](screenshots/Home.png)
 
 ## 🌟 Features
 
@@ -17,8 +17,6 @@ A comprehensive system for managing and analyzing student results using Python, 
   - Mathematics
   - DSA
 
-![Data Generation](screenshots/data_generation.png)
-
 ### 2. Data Analysis (Using PySpark)
 - **Statistical Analysis:**
   - Overall performance metrics
@@ -32,34 +30,41 @@ A comprehensive system for managing and analyzing student results using Python, 
   - Pass percentages by subject
   - Subject-wise performance trends
 
-![Analysis Results](screenshots/analysis_results.png)
-
 ### 3. Interactive Dashboard
-#### Student Search Features
-- Search by Student ID or Name
-- Comprehensive student profile view
+
+#### Student Profile View
+- Comprehensive student information display
 - Individual performance metrics
-- Color-coded grade visualization
-- Subject-wise performance charts
+- Subject-wise marks breakdown
+- Grade visualization
+- Search by Student ID or Name
 
-![Student Search](screenshots/student_search.png)
+![Student Profile](screenshots/StudentProfile.png)
 
-#### Analytics Dashboard
-- **Key Performance Indicators**
+#### Performance Analytics Dashboard
+- **Overall Performance Dashboard**
+  - Key performance indicators
+  - Statistical analysis
+  - Performance trends
+  - Subject-wise comparisons
   - Overall average marks
   - Pass rate with distinction percentage
   - Highest/lowest marks
   - Total entries and statistics
 
-![KPI Dashboard](screenshots/kpi_dashboard.png)
+![Overall Performance](screenshots/Overallperformance.png)
 
-- **Performance Analysis**
-  - Interactive subject-wise performance charts
-  - Grade distribution pie charts
-  - Detailed statistical tables
-  - Pass/Fail analysis by subject
+#### Grade Distribution Analysis
+- Visual representation of grades
+- Subject-wise grade breakdown
+- Performance metrics
+- Statistical distribution
+- Interactive subject-wise performance charts
+- Grade distribution pie charts
+- Detailed statistical tables
+- Pass/Fail analysis by subject
 
-![Performance Charts](screenshots/performance_charts.png)
+![Grade Distribution](screenshots/GradeDistribution.png)
 
 ## 🛠️ Technology Stack
 - Python 3.x
@@ -71,59 +76,6 @@ A comprehensive system for managing and analyzing student results using Python, 
   - Faker (for data generation)
   - Matplotlib (for visualization)
   - Seaborn (for statistical plots)
-
-## 📋 Prerequisites
-1. Python 3.x
-2. Java Runtime Environment (for PySpark)
-3. Required Python packages:
-```bash
-pip install -r requirements.txt
-```
-
-## 🚀 Installation & Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/ranjitla/student-result-management.git
-cd student-result-management
-```
-
-2. Create required directories:
-```bash
-mkdir data
-mkdir analysis_results
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## 💻 Usage
-
-1. Generate student data:
-```bash
-python data_generator.py
-```
-This will create:
-- students.csv (10,000 student profiles)
-- marks.csv (60,000 mark entries)
-
-2. Run Spark analysis:
-```bash
-python spark_analysis.py
-```
-Generates analysis files:
-- overall_stats.csv
-- subject_stats.csv
-- grade_dist.csv
-- performance_metrics.csv
-- subject_performance.csv
-
-3. Launch the dashboard:
-```bash
-streamlit run dashboard.py
-```
 
 ## 📁 Project Structure
 ```
@@ -146,52 +98,48 @@ student-result-management/
 └── README.md               # Documentation
 ```
 
-## 📊 Dashboard Guide
+## 📊 System Features
 
-### Student Search Tab
-1. Enter student ID (e.g., STU00001) or name
-2. View comprehensive student profile:
-   - Personal information
-   - Academic performance
-   - Subject-wise marks
-   - Performance visualization
+### Home Page
+- Overview of the system
+- Quick navigation options
+- System statistics
+- Performance highlights
+- Real-time data updates
 
-![Student Profile](screenshots/student_profile.png)
+### Student Management
+- Student profile creation and management
+- Batch-wise organization
+- Unique student ID generation
+- Personal information tracking
 
-### Analysis Tab
-1. **Key Metrics View**
-   - Overall performance indicators
-   - Quick statistics
-   
-2. **Subject Analysis**
-   - Interactive performance charts
-   - Detailed subject statistics
-   
-3. **Grade Distribution**
-   - Visual grade distribution
-   - Percentage breakdowns
+### Academic Records
+- Subject-wise mark entry
+- Automated grade calculation
+- Performance tracking
+- Historical data maintenance
 
-![Analysis Features](screenshots/analysis_features.png)
+### Analysis Capabilities
+- Real-time statistical analysis
+- Performance trend visualization
+- Grade distribution analysis
+- Subject-wise comparisons
+- Batch performance metrics
 
-## 🔧 Customization
-You can modify:
-1. Number of students (`data_generator.py`):
-```python
-def generate_student_profiles(num_students=10000):
-```
+### Reporting Features
+- Detailed student reports
+- Performance summaries
+- Grade distribution reports
+- Statistical analysis reports
+- Export capabilities
 
-2. Subject list (`data_generator.py`):
-```python
-subjects = ['Electronics', 'Programming', 'Database', 
-            'Data_Science', 'Mathematics', 'DSA']
-```
-
-3. Grade boundaries (`data_generator.py`):
-```python
-'A+' if x >= 90 else
-'A' if x >= 80 else
-# ... etc
-```
+## 🔧 Customization Options
+The system supports customization of:
+1. Number of students (configurable in data generation)
+2. Subject list and weightage
+3. Grade boundaries and criteria
+4. Performance metrics and KPIs
+5. Report formats and layouts
 
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -200,8 +148,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Authors
-- [Your Name]
-- [Other Contributors]
+- Rahul❤️
 
 ## 🙏 Acknowledgments
 - Built as part of the Data Engineering course project

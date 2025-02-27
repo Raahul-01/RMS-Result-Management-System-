@@ -1,10 +1,19 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import avg, count, col, desc, stddev, min, max, sum, when, percentile_approx
 import os
+from pathlib import Path
 
 # Set Python environment for PySpark
 os.environ['PYSPARK_PYTHON'] = 'python'
 os.environ['PYSPARK_DRIVER_PYTHON'] = 'python'
+
+# Set up paths
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / 'data'
+ANALYSIS_DIR = BASE_DIR / 'analysis_results'
+
+# Ensure analysis directory exists
+ANALYSIS_DIR.mkdir(exist_ok=True)
 
 def create_spark_session():
     """Create Spark session"""
@@ -16,7 +25,7 @@ def create_spark_session():
 def analyze_data(spark):
     """Comprehensive analysis of student results using Spark"""
     print("Reading data files...")
-    marks_df = spark.read.csv('data/marks.csv', header=True)
+    marks_df = spark.read.csv(str(DATA_DIR / 'marks.csv'), header=True)
     marks_df = marks_df.withColumn("marks", col("marks").cast("double"))
     
     print("Calculating statistics...")
@@ -59,14 +68,12 @@ def analyze_data(spark):
     
     # Save results
     print("Saving analysis results...")
-    if not os.path.exists('analysis_results'):
-        os.makedirs('analysis_results')
     
-    overall_stats.toPandas().to_csv('analysis_results/overall_stats.csv', index=False)
-    subject_stats.toPandas().to_csv('analysis_results/subject_stats.csv', index=False)
-    grade_dist.toPandas().to_csv('analysis_results/grade_dist.csv', index=False)
-    performance_metrics.toPandas().to_csv('analysis_results/performance_metrics.csv', index=False)
-    subject_performance.toPandas().to_csv('analysis_results/subject_performance.csv', index=False)
+    overall_stats.toPandas().to_csv(ANALYSIS_DIR / 'overall_stats.csv', index=False)
+    subject_stats.toPandas().to_csv(ANALYSIS_DIR / 'subject_stats.csv', index=False)
+    grade_dist.toPandas().to_csv(ANALYSIS_DIR / 'grade_dist.csv', index=False)
+    performance_metrics.toPandas().to_csv(ANALYSIS_DIR / 'performance_metrics.csv', index=False)
+    subject_performance.toPandas().to_csv(ANALYSIS_DIR / 'subject_performance.csv', index=False)
     
     # Print summary
     print("\nAnalysis Summary:")
